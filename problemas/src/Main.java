@@ -7,6 +7,7 @@ import practicaExcepciones.calcu2;
 import practicaGenericidad.AlmacenamientoGenerico;
 import practicaParcialEstudiante.*;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -57,13 +58,13 @@ public class Main {
         Notas not2= new Notas(1, "10/4", "primera instancia");
         Notas not3= new Notas(9, "10/4", "primera instancia");
 
-        MetodosColecciones_Generica <Notas> notas=new MetodosColecciones_Generica <>();
+        MetodosColecciones_Generica <String, Notas> notas=new MetodosColecciones_Generica <>();
 
         try
         {
-            notas.agregar(not1, "Ya subiste esa nota, le aviso a tu profe :v");
-            notas.agregar(not2, "Ya subiste esa nota, le aviso a tu profe :v");
-            notas.agregar(not3, "Ya subiste esa nota, le aviso a tu profe :v");
+            notas.agregar(not1, "Primer parcial");
+            notas.agregar(not2, "Segundo parcial");
+            notas.agregar(not3, "Tercero parcial");
 
         }
         catch (CastigoExcepcion xd)
@@ -71,7 +72,7 @@ public class Main {
             System.out.println(xd.getMessage());
         }
 
-        HashSet<Notas> notasA = notas.getSet();
+        HashMap<String, Notas> notasA = notas.getMap();
 
         String[] diasCursados={"lunes", "martes"};
 
@@ -80,13 +81,13 @@ public class Main {
         Materias mat3=new Materias("lengua", "priscila", "julieta", diasCursados, notasA);
         Materias mat4=new Materias("matematica", "priscila", "julieta", diasCursados, notasA);
 
-        MetodosColecciones_Generica <Materias> materias=new MetodosColecciones_Generica <>();
+        MetodosColecciones_Generica <String, Materias> materias=new MetodosColecciones_Generica <>();
 
         try
         {
-            materias.agregar(mat1, "No se pueden agregar mas materias");
-            materias.agregar(mat2, "No se pueden agregar mas materias");
-            materias.agregar(mat3, "No se pueden agregar mas materias");
+            materias.agregar(mat1, "mat");
+            materias.agregar(mat2, "prog");
+            materias.agregar(mat3, "len");
 
 
         } catch (CastigoExcepcion lol)
@@ -94,11 +95,11 @@ public class Main {
             System.out.println(lol.getMessage());
         }
 
-        HashSet<Materias> materiasA = materias.getSet();
+        HashMap<String, Materias> materiasA = materias.getMap();
 
         Estudiante valen=new Estudiante("valen", "ramirez", "30/10/2003", "valennramirez@gmail.com", 101010, materiasA);
 
-        //System.out.println(valen.toString());
+        System.out.println(valen.toString());
 
 
         //GRABARLO EN EL JSON
@@ -127,7 +128,7 @@ public class Main {
 
         archivo.grabar(estudianteValen, "estudiantes.dat");
 
-        System.out.println(archivo.leer("estudiantes.dat"));
+        //System.out.println(archivo.leer("estudiantes.dat"));
 
 
     }

@@ -1,40 +1,38 @@
 package practicaParcialEstudiante;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class MetodosColecciones_Generica <T extends Object>{
+public class MetodosColecciones_Generica <K, T> implements IColecciones<K, T>{
     private T obj;
-    private HashSet<T> set;
+    private K key;
+    private HashMap<K,T> map;
 
     public MetodosColecciones_Generica ()
     {
-        this.set=new HashSet<>();
+        this.map=new HashMap<>();
     }
 
-    public boolean agregar(T obj, String mensaje) throws CastigoExcepcion {
+    public boolean agregar(T obj, K key) throws CastigoExcepcion {
         boolean flag=false;
 
-        if(!set.contains(obj))
+        if(!map.containsKey(key))
         {
-            set.add(obj);
+            map.put(key, obj);
             flag=true;
-        }
-        else
-        {
-            throw new CastigoExcepcion(mensaje);
         }
 
         return flag;
     }
 
-    public boolean eliminar(T obj)
+    public boolean eliminar(K key)
     {
         boolean flag=false;
 
-        if(!set.contains(obj))
+        if(!map.containsKey(key))
         {
-            set.remove(obj);
+            map.remove(key);
             flag=true;
         }
 
@@ -43,7 +41,7 @@ public class MetodosColecciones_Generica <T extends Object>{
 
     public void listar()
     {
-        Iterator<T> it=set.iterator();
+        Iterator it=map.entrySet().iterator();
 
         while(it.hasNext())
         {
@@ -53,7 +51,7 @@ public class MetodosColecciones_Generica <T extends Object>{
 
     public int contar()
     {
-        Iterator<T> it=set.iterator();
+        Iterator it=map.entrySet().iterator();
 
         int i=0;
 
@@ -66,7 +64,7 @@ public class MetodosColecciones_Generica <T extends Object>{
         return i;
     }
 
-    public HashSet<T> getSet() {
-        return set;
+    public HashMap<K, T> getMap() {
+        return map;
     }
 }

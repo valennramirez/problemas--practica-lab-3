@@ -1,5 +1,6 @@
 package practicaParcialEstudiante;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Estudiante {
@@ -8,7 +9,7 @@ public class Estudiante {
     private String fechaDeNacimiento;
     private String mail;
     private int legajo;
-    private HashSet<Materias> materias;
+    private HashMap<String, Materias> materias;
 
     public Estudiante()
     {
@@ -18,7 +19,7 @@ public class Estudiante {
         this.mail="";
         this.legajo=0;
 
-        materias=new HashSet<>();
+        materias=new HashMap<>();
     }
 
     public Estudiante (String nombre, String apellido, String fechaDeNacimiento, String mail, int legajo)
@@ -30,7 +31,7 @@ public class Estudiante {
         this.legajo=legajo;
     }
 
-    public Estudiante (String nombre, String apellido, String fechaDeNacimiento, String mail, int legajo, HashSet<Materias> materias)
+    public Estudiante (String nombre, String apellido, String fechaDeNacimiento, String mail, int legajo, HashMap<String, Materias> materias)
     {
         this.nombre=nombre;
         this.apellido=apellido;
@@ -60,11 +61,11 @@ public class Estudiante {
         this.mail = mail;
     }
 
-    public void setMaterias(HashSet<Materias> materias) {
+    public void setMaterias(HashMap<String, Materias> materias) {
         this.materias = materias;
     }
 
-    public HashSet<Materias> getMaterias() {
+    public HashMap<String, Materias> getMaterias() {
         return materias;
     }
 

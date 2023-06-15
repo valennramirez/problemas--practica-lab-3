@@ -3,6 +3,7 @@ package practicaParcialEstudiante;
 import java.rmi.MarshalException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Materias {
@@ -10,18 +11,18 @@ public class Materias {
     private String docente;
     private String ayudante;
     private String[] diasDeCursada;
-    private HashSet<Notas> notas;
+    private HashMap<String, Notas> notas;
 
     public Materias()
     {
         this.nombre="";
         this.docente="";
         this.ayudante="";
-        this.notas=new HashSet<Notas>();
+        this.notas=new HashMap<>();
 
     }
 
-    public Materias(String nombre, String docente, String ayudante, String[] diasDeCursada, HashSet<Notas> notas)
+    public Materias(String nombre, String docente, String ayudante, String[] diasDeCursada, HashMap<String, Notas> notas)
     {
         this.nombre=nombre;
         this.docente=docente;
